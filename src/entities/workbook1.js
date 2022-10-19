@@ -4,17 +4,17 @@ const rpgDiceRoller = require('@dice-roller/rpg-dice-roller');
 
 // Very simple monster encounter table for a dungeon for 1st-level 5E characters. dhd = death house dungeon, the first dungeon in Curse of Strahd 5e
 
-// basic entity generator (beg), of type randTable
-// let eg1 = {
-//   entityTitle: 'Curse of Strahd 5E Death House Dungeon Encounter Table',
-//   genType: 'randTable',
-//   dieType: 'd3',
-//   tableKeysValues: {1: 'kobold', 2: 'goblin', 3: 'ghoul'},
-//   rollUp: function() {
-//     let roll = new rpgDiceRoller.DiceRoll(this.dieType);
-//     return this.tableKeysValues[(new rpgDiceRoller.DiceRoll(this.dieType)).total];
-//   }
-// };
+// basic 1D entity generator (beg), of type randTable
+let beg = {
+  entityTitle: 'Curse of Strahd 5E Death House Dungeon Encounter Table',
+  genType: 'randTable2D',
+  dieType: 'd3',
+  tableKeysValues: {1: 'kobold', 2: 'goblin', 3: 'ghoul'},
+  rollUp: function() {
+    let roll = new rpgDiceRoller.DiceRoll(this.dieType);
+    return this.tableKeysValues[(new rpgDiceRoller.DiceRoll(this.dieType)).total];
+  }
+};
 
 // Basic entity generator example - number of entities - no title
 let beg1 = {
@@ -35,10 +35,10 @@ let beg2 = {
   entityType: 'cloudy day',
 };
 
-// 2D randTable advanced entity generator example
+// 3D randTable advanced entity generator example
 let aeg1 = {
   entityTitle: 'Curse of Strahd 5E Death House Dungeon Encounter Table',
-  genType: 'randTable',
+  genType: 'randTable3D',
   dieType: 'd3',
   tableKeysValues: {
     1: {
@@ -74,7 +74,7 @@ let aeg1 = {
   }
 };
 
-// tableRange entity generator - similar to randTable but using a range of values
+// tableRange (2D) entity generator - similar to randTable but using a range of values
 let aeg2 = {
   entityTitle: 'Random Weather Table',
   genType: 'tableRange',
