@@ -1,5 +1,0 @@
-#!/usr/bin/bash
-
-git add .
-git commit -m "Removed old README; added new README; deleted extraneous React files."
-git push -u origin main
